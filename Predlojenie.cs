@@ -46,7 +46,7 @@ namespace _1
 
         public string SearchWord(int index)
         {
-            if (index > 0 && index < _words.Length)
+            if (index >= 0 && index < _words.Length)
             {
                 string[] word = _words[index].Split(_ch);
                 return word[0];
