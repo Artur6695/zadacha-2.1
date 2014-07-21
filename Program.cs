@@ -10,23 +10,17 @@ namespace _1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите максимальную длину предложения (кол-во символов)");
-            // Считываем значение из консоли и преобразовываем значение в число
+            Console.WriteLine("Введите максимальную длину предложения (кол-во слов)");
             string s = Console.ReadLine();
             int k = int.Parse(s);
 
             Console.WriteLine("\nВведите предложение!");
-            // Считываем предложение и записываем в строковую переменную sentance
             string sentance = Console.ReadLine();
             
-            // Создаём экземпляр нашего класса "Предложение"
             Predlojenie p = new Predlojenie(k, sentance);
 
-            // Проверяем, не превышает ли кол-во введённых символов максимально возможную длину предложения
-            // и если не превышает, то считаем кол-во слов/знаков препинания в предложении,
-            // выводим предложение со словами в обратном порядке, и исчем слово по введённому индексу
-            if (sentance.Length > p._maxChars)
-                Console.WriteLine("\nДлина введённого предложения больше максимально возможной длины предложения");
+            if (p._words.Length > p._maxWords)
+                Console.WriteLine("Количество слов в предложении больше максимально возможного");
             else
             {
                 Console.WriteLine("Кол-во слов в предложении = {0}", p._words.Length);
@@ -38,10 +32,9 @@ namespace _1
                 s = Console.ReadLine();
                 int index = int.Parse(s);
 
-                Console.WriteLine("\nСлово с индексом {0} - {1}", index, p.SearchSentanse(index - 1));
+                Console.WriteLine("\nСлово с индексом {0} - {1}", index, p.SearchWord(index - 1));
             }
 
-            // Эта строчка нужна, чтобы консоль закрывалась при нажатии какой либо клавиши, по завершении работы с программой
             Console.ReadKey();
         }
     }
